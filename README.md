@@ -18,9 +18,9 @@ Simple Vue.js Responsive Navbar component.
 
 In the shell:
 
-
+```
 npm i vue-navbar-responsive
-
+```
 In your component file:
 ```vue
 
