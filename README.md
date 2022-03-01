@@ -1,24 +1,57 @@
 # vue-navbar
 
-## Project setup
-```
-npm install
+Simple Vue.js Responsive Navbar component.
+
+
+
+## Features
+
+- Simple
+- Responsive
+- Can Be Styled  
+
+
+
+
+## How to use
+
+
+In the shell:
+
+
+npm i vue-navbar-responsive
+
+In your component file:
+```vue
+
+
+
+import VueNavbarResponsive from 'vue-navbar-responsive';
+
+export default {
+  name: 'App',
+  components: {
+  ImageCompare
+  },
+
+  data() {
+    return {
+      header: {
+        color: "#222",
+        fontSize: "1em",
+        backgroundColor: "#666",
+        padding: "10px",
+      },
+    };
+  },
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+
+```xml
+<template>
+  <VueNavbarResponsive :style="header" />
+</template>
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
