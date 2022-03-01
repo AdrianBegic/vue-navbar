@@ -1,6 +1,8 @@
 <template>
-<header :style="header">
-    <router-link class="header__logo" to="/">LOGO</router-link>
+<header class="header">
+    <router-link class="header__logo" to="/">
+        <img :src='navConfig.navLogo' class="header__logo" alt="logo">
+    </router-link>
     <div class="ham-menu" @click="changeVisibility()" :class="{ active: burgerVisibility }">
         <span class="ham-menu__item"></span>
         <span class="ham-menu__item"></span>
@@ -9,19 +11,7 @@
     <nav class="header__nav-wrap" :class="{ open: burgerVisibility }">
         <ul class="header__nav-list" @click="burgerVisibility = false">
             <li class="header__nav-item">
-                <router-link class="header__nav-link" to="/">HOME</router-link>
-            </li>
-            <li class="header__nav-item">
-                <router-link class="header__nav-link" to="/Services">SERVICES</router-link>
-            </li>
-            <li class="header__nav-item">
-                <router-link class="header__nav-link" to="/About">ABOUT</router-link>
-            </li>
-            <li class="header__nav-item">
-                <router-link class="header__nav-link" to="/Gallery">GALLERY</router-link>
-            </li>
-            <li class="header__nav-item">
-                <router-link class="header__nav-link" to="/Contact">CONTACT</router-link>
+                <router-link class="header__nav-link" v-for="(navName, index) in navLinks" :key="index" :to="navName.path">{{ navName.name }}</router-link>
             </li>
         </ul>
     </nav>
@@ -33,26 +23,19 @@ export default {
     name: "Nav",
     props: {
         msg: String,
+        navLinks: {
+            type: Array,
+            required: true,
+        },
+        navConfig: {
+            type: Object,
+            required: true,
+        },
     },
 
     data() {
         return {
             burgerVisibility: false,
-
-            
-                header: {
-                    color: 'null',
-                    fontSize: "null",
-                    display: 'flex',
-                    width: '100%' ,
-                    backgroundColor: 'null',
-                    alignItems: 'center',
-                    position: 'fixed',
-                    boxsizing: 'border-box',
-                    zIndex: '999',
-                    padding: 'null'
-                }, 
-            
 
         };
     },
@@ -65,10 +48,15 @@ export default {
 </script>
 
 <style scoped>
+* {
+    font-family: v-bind("navConfig.linkFont");
+    color: v-bind("navConfig.linkColor");
+}
+
 .header {
     display: flex;
     width: 100%;
-    background-color: #936f5d;
+    background-color: v-bind("navConfig.navBg");
     color: #fff;
     align-items: center;
     position: fixed;
@@ -96,11 +84,10 @@ export default {
 
 .header__logo {
     display: inline-block;
-    height: auto;
+    height: 60px;
     text-decoration: none;
-    color: #000;
-    width: 20px;
-    font-size: 2em;
+    color: #fff;
+    width: 60px;
 }
 
 @media only screen and (max-width: 559px) {
@@ -191,7 +178,7 @@ export default {
 
 @media only screen and (max-width: 559px) {
     .header__nav-item {
-        display: block;
+        display: grid;
         margin: 0 auto;
         margin-bottom: 32px;
         text-align: center;
@@ -225,13 +212,13 @@ export default {
     display: inline-block;
     text-decoration: none;
     letter-spacing: 0.15em;
-
+    margin-right: 30px;
 }
 
 @media only screen and (max-width: 959px) {
     .header__nav-link {
-        font-size: 21px;
-
+        font-size: 50px;
+        margin-bottom: 40px;
     }
 }
 

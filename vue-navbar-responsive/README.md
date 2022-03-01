@@ -31,7 +31,7 @@ import VueNavbarResponsive from 'vue-navbar-responsive';
 export default {
   name: 'App',
   components: {
-  ImageCompare
+  VueNavbarResponsive
   },
 
   data() {
