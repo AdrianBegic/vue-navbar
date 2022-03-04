@@ -1,4 +1,4 @@
-# vue-navbar
+# vue-navbar | Works With Vue 3
 
 Simple Vue.js Responsive Navbar component.
 
