@@ -248,13 +248,13 @@ export default {
 
 @media only screen and (max-width: 959px) {
     .header__nav-link::after {
-        background-color: #fff;
+        background-color: v-bind("navConfig.linkColorHover");
     }
 }
 
 @media only screen and (min-width: 960px) {
     .header__nav-link::after {
-        background-color: #f0d0b8;
+        background-color: v-bind("navConfig.linkColorHover");
     }
 }
 

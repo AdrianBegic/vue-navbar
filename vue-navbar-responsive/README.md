@@ -62,6 +62,7 @@ export default {
             navBg: "#000",
             linkFont: "Sans-serif",
             linkColor: "#fff",
+            linkColorHover: "#fff",
             navLogo: "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg",
         });
 
